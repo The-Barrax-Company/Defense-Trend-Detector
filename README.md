@@ -1,72 +1,36 @@
-# Defense Trend Detector RAG
+# Defense Trend Detector App To AWS
 
-## Install dependencies
+## Getting Started
 
-1. **Set Up a Python Virtual Environment**  
-   Before installing dependencies, create and activate a virtual environment to keep packages isolated.
+### Installing Requirements
 
-   - **Create a virtual environment**:
-     ```sh
-     python3 -m venv venv
-     ```
-   - **Activate the virtual environment**:
-     - **MacOS/Linux**:
-       ```sh
-       source venv/bin/activate
-       ```
-     - **Windows (Command Prompt)**:
-       ```sh
-       venv\Scripts\activate
-       ```
-     - **Windows (PowerShell)**:
-       ```sh
-       venv\Scripts\Activate.ps1
-       ```
-    - **(WHEN FINISHED) Deactivate the virtual environment**:
-       ```sh
-       deactivate
-       ```
-
-2. **Do the following before installing the dependencies found in `requirements.txt` file because of current challenges installing `onnxruntime` through `pip install onnxruntime`.**
-
-   - For MacOS users, a workaround is to first install `onnxruntime` dependency for `chromadb` using:
-
-     ```sh
-     conda install onnxruntime -c conda-forge
-     ```
-     See this [thread](https://github.com/microsoft/onnxruntime/issues/11037) for additional help if needed.
-
-   - For Windows users, follow the guide [here](https://github.com/bycloudai/InstallVSBuildToolsWindows?tab=readme-ov-file) to install the Microsoft C++ Build Tools. Be sure to follow through to the last step to set the environment variable path.
-
-3. **Now run this command to install dependencies in the `requirements.txt` file.** 
-
-   ```sh
-   pip3 install -r requirements.txt
-   ```
-
-4. **Install markdown depenendies with:** 
-
-    ```sh
-    pip3 install "unstructured[md]"
-    ```
-
-## Create vector-embedding database
-
-Create the Chroma DB.
-
-```python
-python3 create_database.py
+```sh
+pip install -r requirements.txt
 ```
 
-## Query the database
+### Generate the database
 
-Query the Chroma DB.
-
-```python
-python3 query_data.py "How does Alice meet the Mad Hatter?"
+```sh
+# Execute from root directory.
+python populate_database.py --reset
 ```
 
-> You'll also need to set up an OpenAI account (and set the OpenAI key in your environment variable) for this to work.
+### Running the app
+
+```sh
+# Execute from src directory
+cd src
+python rag_app/query_rag.py "how much does a landing page cost?"
+```
+
+Example output:
+
+```text
+Answer the question based on the above context: How much does a landing page cost to develop?
+
+Response:  Based on the context provided, the cost for a landing page service offered by Galaxy Design Agency is $4,820. Specifically, under the "Our Services" section, it states "Landing Page for Small Businesses ($4,820)" when describing the landing page service. So the cost listed for a landing page is $4,820.
+Sources: ['src/data/source/galaxy-design-client-guide.pdf:1:0', 'src/data/source/galaxy-design-client-guide.pdf:7:0', 'src/data/source/galaxy-design-client-guide.pdf:7:1']
+```
 
 ## Important setup notes
 

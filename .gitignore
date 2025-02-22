@@ -1,6 +1,7 @@
 venv/
 chroma/
 __pycache__/
+.pytest_cache/
 *.pyc
 *.pyo
 .env

@@ -44,7 +44,7 @@ def main():
     response = model.invoke(prompt)
     response_text = response.content
 
-    sources = [doc.metadata.get("source", None) for doc, _score in results]
+    sources = [f'{doc.metadata.get("source", None)} - {score:.2f}' for doc, score in results]
     formatted_response = f"Response: {response_text}\nSources: {sources}"
     print(formatted_response)
 

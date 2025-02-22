@@ -42,13 +42,13 @@
 
    ```sh
    pip3 install -r requirements.txt
-
+   ```
 
 4. **Install markdown depenendies with:** 
 
-```python
-pip3 install "unstructured[md]"
-```
+    ```sh
+    pip3 install "unstructured[md]"
+    ```
 
 ## Create vector-embedding database
 

@@ -67,3 +67,7 @@ python3 query_data.py "How does Alice meet the Mad Hatter?"
 ```
 
 > You'll also need to set up an OpenAI account (and set the OpenAI key in your environment variable) for this to work.
+
+## Important setup notes
+
+Before use, ensure that you have an AWS account setup, have installed the AWS CLI client, ran `aws configure` to configure your access keys and secret access keys available through your account console, and requested access to AWS Bedrock text embedding models (granted immediately).

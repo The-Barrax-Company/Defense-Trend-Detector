@@ -11,6 +11,6 @@ openai==1.63.2 # For embeddings
 tiktoken==0.7.0  # For embeddings 
 pypdf==4.12.2  # For PDF-format data
 pytest==8.3.4  # For testing LLM output
-boto3==1.36.26  # For testing
+boto3==1.36.26  # For AWS Python SDK
 
 # install markdown depenendies with: `pip install "unstructured[md]"` after install the requirements file. Leave this line commented out. 

@@ -41,6 +41,23 @@ python app_api_handler.py
 
 Then go to `http://0.0.0.0:8000/docs` to try it out.
 
+## How to run locally as Docker image (must do below after each code change!)
+
+First, initiate build from within `image` directory.
+
+```sh
+docker build --platform linux/amd64 -t aws_rag_app .
+```
+
+Then, launch the image (make sure Docker Desktop Client, daemon, is open!)
+
+```sh
+docker run --rm -p 8000:8000 \
+    --entrypoint python \
+    --env-file .env \
+    aws_rag_app app_api_handler.py
+```
+
 ## Important setup notes
 
 Before use, ensure that you have an AWS account setup, have installed the AWS CLI client, ran `aws configure` to configure your access keys and secret access keys available through your account console, and requested access to AWS Bedrock text embedding models (granted immediately).
